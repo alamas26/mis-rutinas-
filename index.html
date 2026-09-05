@@ -1,0 +1,277 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Mi Rutina V4</title>
+<style>
+:root{--bg:#f4f6f8;--card:#fff;--ink:#18232d;--muted:#77828b;--line:#e0e5e9;--blue:#247cf0;--green:#20b56b;--yellow:#e4ad1d;--red:#df4b4b;--nav:#13212d}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--ink)}.app{max-width:480px;margin:auto;min-height:100vh;background:#f7f9fa;padding-bottom:76px}header{background:var(--nav);color:#fff;padding:17px 22px 15px;position:sticky;top:0;z-index:5}.title{font-size:23px;font-weight:800}.date{font-size:13px;color:#c7d0d7;margin-top:3px}main{padding:13px}.view{display:none}.view.active{display:block}h2{font-size:20px;margin:7px 3px 14px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-bottom:14px;box-shadow:0 2px 8px #18232d0b}.head{padding:15px 15px 7px;display:flex;justify-content:space-between}.label{font-weight:800;font-size:14px}.freq{font-size:12px;color:var(--muted);margin-top:3px}.score{display:flex;align-items:center;padding:4px 15px 14px;gap:15px}.big{font-size:38px;font-weight:850}.status{font-size:13px;font-weight:700}.dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:6px}.red{background:var(--red)}.yellow{background:var(--yellow)}.green{background:var(--green)}.ring{margin-left:auto;width:66px;height:66px;border-radius:50%;position:relative}.ring:after{content:"";position:absolute;inset:9px;background:#fff;border-radius:50%}.threshold{display:flex;justify-content:space-between;padding:0 15px 13px;font-size:11px;color:#626d75}.row{display:flex;align-items:center;gap:10px;padding:11px 15px;border-top:1px solid var(--line)}.row input[type=checkbox]{appearance:none;width:25px;height:25px;border:2px solid #aab3b9;border-radius:7px;margin:0;flex:none}.row input:checked{background:var(--green);border-color:var(--green)}.row input:checked:after{content:'✓';color:#fff;font-size:18px;font-weight:800;display:block;text-align:center;line-height:21px}.rtext{flex:1}.rname{font-size:14px}.desc{font-size:11px;color:var(--muted);margin-top:2px}.counter{display:flex;align-items:center;gap:5px}.counter button{width:29px;height:29px;border:1px solid #d5dce1;background:#fff;border-radius:8px;font-size:18px}.counter b{min-width:40px;text-align:center}.weekchecks{display:flex;gap:5px}.weekchecks button{width:27px;height:27px;border-radius:7px;border:1px solid #b8c0c5;background:#fff;font-size:15px}.weekchecks button.done{background:var(--green);border-color:var(--green);color:#fff}.note{margin:0 15px 15px;background:#edf7ff;border-radius:13px;padding:11px;font-size:12px;color:#36586e}.tabs{position:fixed;bottom:0;left:0;right:0;max-width:480px;margin:auto;background:#fff;border-top:1px solid var(--line);display:flex;justify-content:space-around;padding:8px 0 calc(8px + env(safe-area-inset-bottom));z-index:8}.tab{border:0;background:none;color:#68737b;font-size:11px}.tab b{display:block;font-size:21px}.tab.active{color:var(--blue)}.switches{display:flex;background:#e9eef2;border-radius:12px;padding:3px;margin-bottom:13px}.switches button{flex:1;border:0;background:transparent;padding:9px;border-radius:9px}.switches button.active{background:#fff;box-shadow:0 1px 4px #0001;font-weight:700}.cal{padding:12px}.calgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:7px;text-align:center}.dow{font-size:10px;color:var(--muted);font-weight:700}.day{min-height:42px;border:0;background:#f8fafb;border-radius:9px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:11px}.day .sdot{width:11px;height:11px;border-radius:50%;margin-top:4px}.day.muted{opacity:.25}.yeargrid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;padding:15px}.month{border:1px solid var(--line);border-radius:12px;padding:11px;text-align:center}.monthname{font-weight:750;font-size:12px}.monthscore{font-size:20px;font-weight:800;margin-top:5px}.month .sdot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:4px}.setting{padding:14px 15px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}.setting small{color:var(--muted)}button.action{border:0;background:var(--blue);color:#fff;border-radius:10px;padding:9px 12px;font-weight:750}.editor{padding:15px}.field{margin-bottom:12px}.field label{display:block;font-size:12px;font-weight:750;margin-bottom:5px}.field input,.field select,.field textarea{width:100%;padding:9px;border:1px solid #d5dce1;border-radius:9px;font:inherit}.activity{border:1px solid var(--line);border-radius:12px;padding:10px;margin-bottom:9px}.activity input{width:100%;padding:8px;border:1px solid #d5dce1;border-radius:8px;margin-bottom:6px}.tw{display:grid;grid-template-columns:1fr 90px;gap:7px}.danger{color:#c83e3e;border:1px solid #edcccc;background:#fff;border-radius:9px;padding:7px 9px}.back{border:0;background:none;font-size:27px}.save{padding:5px 0 15px}.save button{width:100%;padding:12px}
+</style><meta name="theme-color" content="#14212d"><meta name="description" content="Mi Rutina: tú haces la rutina, la app lleva las cuentas."><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png" type="image/png"></head><body><div class="app"><header><div class="title">Mi Rutina</div><div class="date" id="today"></div></header><main>
+<section id="home" class="view active"><h2>Hoy</h2><div id="blocks"></div></section>
+<section id="history" class="view"><h2>Historial</h2><div class="switches"><button class="active" onclick="histTab('week',this)">Semana</button><button onclick="histTab('month',this)">Mes</button><button onclick="histTab('year',this)">Año</button></div><div id="historyBody"></div></section>
+<section id="settings" class="view"><h2>Ajustes</h2><div class="card"><div class="head"><div class="label">Bloques</div><button class="action" onclick="newBlock()">+ Nuevo</button></div><div id="settingsList"></div></div></section>
+<section id="editor" class="view"><div style="display:flex;align-items:center;gap:5px"><button class="back" onclick="show('settings')">‹</button><h2 id="editorTitle" style="margin:0"></h2></div><div id="editorBody"></div><div class="save"><button class="action" onclick="saveEditor()">Guardar bloque</button></div></section>
+</main><nav class="tabs"><button class="tab active" onclick="show('home',this)"><b>⌂</b>Hoy</button><button class="tab" onclick="show('history',this)"><b>▥</b>Historial</button><button class="tab" onclick="show('settings',this)"><b>⚙</b>Ajustes</button></nav></div>
+<script>
+const DEMO={blocks:[{id:'daily',name:'Rutina diaria',frequency:'Diaria',thresholds:[5,8],reminder:true,time:'20:30',activities:[['Meditación','5 min'],['Lectura','10 min'],['Caminata','≥ 4.000 pasos'],['Estiramiento','10 min'],['Ejercicio','≥ 20 min'],['10 min aprendizaje',''],['10 min limpieza/orden',''],['10 min sin pantallas',''],['Agradecer',''],['Agua','2 litros']] .map(x=>({name:x[0],desc:x[1],quota:1}))},{id:'weekly',name:'Rutina semanal',frequency:'Semanal',thresholds:[59,79],reminder:true,time:'18:00',reviewDay:'Domingo',activities:[{name:'Ejercicio',desc:'Sesiones ≥ 20 min',quota:3},{name:'Origami',desc:'1 vez',quota:1},{name:'Arcilla',desc:'1 vez',quota:1}]}]};
+let data=JSON.parse(localStorage.getItem('mr_v3_data')||'null')||DEMO;let prog=JSON.parse(localStorage.getItem('mr_v3_prog')||'{}');let editId=null;let monthOffset=(new Date().getDate()>=28?1:0);
+function save(){localStorage.setItem('mr_v3_data',JSON.stringify(data));localStorage.setItem('mr_v3_prog',JSON.stringify(prog))}
+function key(d=new Date()){
+  const x=new Date(d);
+  return x.getFullYear()+'-'+String(x.getMonth()+1).padStart(2,'0')+'-'+String(x.getDate()).padStart(2,'0');
+}function monday(d=new Date()){let x=new Date(d);x.setHours(0,0,0,0);let n=x.getDay();x.setDate(x.getDate()-(n===0?6:n-1));return x}function weekKey(d=new Date()){return key(monday(d))}function pday(){let k=key();if(!prog[k])prog[k]={};return prog[k]}function pweek(){let k='W'+weekKey();if(!prog[k])prog[k]={};return prog[k]}function pmonth(d=new Date()){let k='M'+d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');if(!prog[k])prog[k]={};return prog[k]}function periodStore(b,d=new Date()){return b.frequency==='Mensual'?pmonth(d):pweek()}
+function color(block,val){return val<=block.thresholds[0]?'red':val<=block.thresholds[1]?'yellow':'green'}
+function dailyScore(b){let a=pday()[b.id]||[];return b.activities.reduce((s,x,i)=>s+(Math.min(+a[i]||0,+x.quota||1)>=(+x.quota||1)?1:0),0)}
+function dailyProgress(b){let a=pday()[b.id]||[];return b.activities.reduce((s,x,i)=>s+Math.min(+a[i]||0,+x.quota||1),0)}
+function dailyTarget(b){return b.activities.reduce((s,x)=>s+(+x.quota||1),0)}function weeklyScore(b){
+ let a=periodStore(b)[b.id]||[];
+ let total=b.activities.reduce((s,x)=>s+(+x.quota||1),0);
+ let done=b.activities.reduce((s,x,i)=>s+Math.min(+a[i]||0,+x.quota||1),0);
+ return total?Math.round(done/total*100):0;
+}function status(b){return color(b,b.frequency==='Diaria'?dailyScore(b):weeklyScore(b))}
+function ring(b){let s=b.frequency==='Diaria'?dailyScore(b):weeklyScore(b);let max=b.frequency==='Diaria'?b.activities.length:100;let pct=Math.min(100,s/max*100);return `background:conic-gradient(var(--${status(b)}) ${pct}%,#e8edf0 0)`}
+
+function render(){document.getElementById('today').textContent=new Date().toLocaleDateString('es-PE',{weekday:'long',day:'numeric',month:'long'});renderHome();renderSettings();renderHistory('week')}
+function renderHome(){let out=document.getElementById('blocks');out.innerHTML='';data.blocks.forEach(b=>{let s=b.frequency==='Diaria'?dailyScore(b):weeklyScore(b),c=status(b);let card=document.createElement('div');card.className='card';let title=b.name.toUpperCase();card.innerHTML=`<div class="head"><div><div class="label">${esc(title)}</div><div class="freq">Frecuencia: ${esc(b.frequency.toLowerCase())}</div></div><div class="status"><i class="dot ${c}"></i>${cap(c)}</div></div><div class="score"><div><div class="big">${b.frequency==='Diaria'?s+'/'+b.activities.length:s+'%'}</div><div class="status"><i class="dot ${c}"></i>${cap(c)}</div></div><div class="ring" style="${ring(b)}"></div></div><div class="threshold"><span>🔴 0–${b.thresholds[0]}${b.frequency==='Diaria'?'':'%'}</span><span>🟡 ${b.thresholds[0]+1}–${b.thresholds[1]}${b.frequency==='Diaria'?'':'%'}</span><span>🟢 ${b.thresholds[1]+1}–${b.frequency==='Diaria'?b.activities.length:'100'}${b.frequency==='Diaria'?'':'%'}</span></div>`;let list=document.createElement('div');b.activities.forEach((a,i)=>{let r=document.createElement('div');r.className='row';let value=b.frequency==='Diaria'?dailyScore(b):weeklyScore(b);if(b.frequency==='Diaria'){let ar=pday()[b.id]||(pday()[b.id]=[]),q=+a.quota||1,n=+ar[i]||0;r.innerHTML=`<input type="checkbox" ${n>=q?'checked':''} ${n>=q?'':'disabled'}><div class="rtext"><div class="rname">${i+1}. ${esc(a.name)}</div>${a.desc?`<div class="desc">${esc(a.desc)}</div>`:''}</div>${q>1?`<div class="counter"><button data-op="-">−</button><b>${Math.min(n,q)}/${q}</b><button data-op="+">+</button></div>`:''}`;if(q===1)r.querySelector('input').disabled=false;if(q===1)r.querySelector('input').onchange=e=>{ar[i]=e.target.checked?1:0;save();render()};else r.querySelectorAll('.counter button').forEach(btn=>btn.onclick=()=>{ar[i]=Math.max(0,Math.min(q,n+(btn.dataset.op==='+'?1:-1)));save();render()})}else{let store=periodStore(b),ar=store[b.id]||(store[b.id]=[]);let q=+a.quota||1;r.innerHTML=`<div class="rtext"><div class="rname">${i+1}. ${esc(a.name)}</div>${a.desc?`<div class="desc">${esc(a.desc)}</div>`:''}</div><div class="weekchecks">${Array.from({length:q},(_,j)=>`<button class="${j<(+ar[i]||0)?'done':''}" data-j="${j}">${j<(+ar[i]||0)?'✓':''}</button>`).join('')}</div>`;r.querySelectorAll('button').forEach(btn=>btn.onclick=()=>{let j=+btn.dataset.j;ar[i]=j<(+ar[i]||0)?j:j+1;save();render()})}list.appendChild(r)});card.appendChild(list);if(b.frequency!=='Diaria'){let ar=periodStore(b)[b.id]||[];let miss=[];b.activities.forEach((a,i)=>{let rem=Math.max(0,(+a.quota||1)-(+ar[i]||0));if(rem)miss.push(`${rem} ${(+a.quota||1)>1?'sesiones':'vez'} de ${a.name}`)});let n=document.createElement('div');n.className='note';n.textContent=miss.length?'Te falta: '+miss.join(' · ')+'.':'¡Rutina cumplida!';card.appendChild(n)}out.appendChild(card)})}
+function changeMonth(delta){monthOffset+=delta;renderHistory('month')}function histTab(mode,btn){document.querySelectorAll('.switches button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');renderHistory(mode)}
+function firstTrackedDate(){
+ let ks=Object.keys(prog).filter(k=>/^\d{4}-\d{2}-\d{2}$/.test(k)).filter(k=>{
+   let day=prog[k]||{};
+   return Object.values(day).some(arr=>Array.isArray(arr)&&arr.some(v=>(+v||0)>0));
+ }).sort();
+ return ks.length?new Date(ks[0]+'T00:00:00'):new Date();
+}
+function trackedDay(d){
+ let first=firstTrackedDate(), x=new Date(d); x.setHours(0,0,0,0);
+ return x>=first;
+}
+function dailyValueForDate(b,d){
+  const dayData=prog[key(d)];
+  const ar=dayData && Array.isArray(dayData[b.id]) ? dayData[b.id] : [];
+  return b.activities.reduce((s,a,i)=>{
+    const q=+a.quota||1;
+    return s+(Math.min(+ar[i]||0,q)>=q?1:0);
+  },0);
+}
+function semaforo(v,b){return color(b,v)}
+function weekScoreForDate(b,d){
+ let ar=prog['W'+weekKey(d)]?.[b.id]||[];
+ let total=b.activities.reduce((s,a)=>s+(+a.quota||1),0);
+ let done=b.activities.reduce((s,a,i)=>s+Math.min(+ar[i]||0,+a.quota||1),0);
+ return total?Math.round(done/total*100):0;
+}
+function monthScoreForDate(b,d){
+ let ar=prog['M'+d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')]?.[b.id]||[];
+ let total=b.activities.reduce((s,a)=>s+(+a.quota||1),0);
+ let done=b.activities.reduce((s,a,i)=>s+Math.min(+ar[i]||0,+a.quota||1),0);
+ return total?Math.round(done/total*100):0;
+}
+function dailyPctForDate(b,d){return b.activities.length?Math.round(dailyValueForDate(b,d)/b.activities.length*100):0}
+function weeklyDailyAverage(b,d){
+ let m=monday(d), today=new Date(); today.setHours(0,0,0,0);
+ let sum=0,count=0;
+ for(let i=0;i<7;i++){
+   let x=new Date(m); x.setDate(m.getDate()+i);
+   if(x>today || !trackedDay(x)) continue;
+   sum += dailyPctForDate(b,x);
+   count++;
+ }
+ return count ? Math.round(sum/count) : null;
+}
+function monthlyDailyAverage(b,year,month){
+ let now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate()),days=new Date(year,month+1,0).getDate(),sum=0,count=0;
+ for(let n=1;n<=days;n++){let d=new Date(year,month,n);if(d>today || !trackedDay(d))continue;sum+=dailyPctForDate(b,d);count++}
+ return count?Math.round(sum/count):null;
+}
+function monthlyWeeklyAverage(b,year,month){
+ let now=new Date(),today=new Date(now.getFullYear(),now.getMonth(),now.getDate()),first=new Date(year,month,1),last=new Date(year,month+1,0),start=monday(first),sum=0,count=0;
+ for(let d=new Date(start);d<=last;d.setDate(d.getDate()+7)){
+   let wk=new Date(d);if(wk>today)continue;
+   let score=weekScoreForDate(b,wk);
+   let has=!!prog['W'+weekKey(wk)]?.[b.id];
+   if(has || wk<=today){sum+=score;count++}
+ }
+ return count?Math.round(sum/count):null;
+}
+function blockCard(title,subtitle,score,detail,cls){
+ let c=document.createElement('div');c.className='card';
+ c.innerHTML=`<div class="head"><div><div class="label">${esc(title.toUpperCase())}</div><div class="freq">${esc(subtitle)}</div></div>${score===null?'':'<div class="status"><i class="dot '+cls+'"></i>'+score+'%</div>'}</div><div style="padding:5px 15px 15px;font-size:13px">${detail}</div>`;
+ return c;
+}
+function renderHistory(mode){
+ let out=document.getElementById('historyBody');out.innerHTML='';
+ let daily=data.blocks.find(x=>x.frequency==='Diaria');
+ let weekly=data.blocks.find(x=>x.frequency==='Semanal');
+ let monthly=data.blocks.find(x=>x.frequency==='Mensual');
+
+ if(mode==='week'){
+   if(daily){
+     let avg=weeklyDailyAverage(daily,new Date());
+     let cl=avg===null?'':color(daily,Math.round(avg*daily.activities.length/100));
+     let card=document.createElement('div');card.className='card';
+     let grid='<div class="cal"><div class="calgrid">'+['L','M','X','J','V','S','D'].map(x=>`<div class="dow">${x}</div>`).join('');
+     let m=monday();let today=new Date();today.setHours(0,0,0,0);
+     for(let i=0;i<7;i++){
+       let d=new Date(m);d.setDate(m.getDate()+i);
+       let future=d>today,v=dailyValueForDate(daily,d),tracked=trackedDay(d);
+       grid+=`<div class="day"><span>${d.getDate()}</span>${future||!tracked?'':'<i class="sdot '+semaforo(v,daily)+'"></i>'}</div>`;
+     }
+     grid+='</div></div>';
+     card.innerHTML=`<div class="head"><div><div class="label">${esc(daily.name.toUpperCase())}</div><div class="freq">Últimos 7 días · semáforo diario</div></div>${avg===null?'':'<div class="status"><i class="dot '+cl+'"></i>'+avg+'%</div>'}</div>${grid}`;
+     out.appendChild(card);
+   }
+   if(weekly){
+     let s=weekScoreForDate(weekly,new Date()),cl=color(weekly,Math.round(s));
+     let ar=prog['W'+weekKey(new Date())]?.[weekly.id]||[];
+     let details=weekly.activities.map((a,i)=>{let n=Math.min(+ar[i]||0,+a.quota||1);return `<div style="display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line)"><span>${esc(a.name)}</span><b>${n}/${a.quota}</b></div>`}).join('');
+     out.appendChild(blockCard(weekly.name,'Semana actual · '+s+'%',s,details,cl));
+   }
+   if(monthly){
+     let s=monthScoreForDate(monthly,new Date()),cl=color(monthly,Math.round(s));
+     let ar=periodStore(monthly,new Date())[monthly.id]||[];
+     let details=monthly.activities.map((a,i)=>{let n=Math.min(+ar[i]||0,+a.quota||1);return `<div style="display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--line)"><span>${esc(a.name)}</span><b>${n}/${a.quota}</b></div>`}).join('');
+     out.appendChild(blockCard(monthly.name,'Mes actual · '+s+'%',s,details,cl));
+   }
+
+ }else if(mode==='month'){
+   let base=monthOffset||0,now=new Date(),target=new Date(now.getFullYear(),now.getMonth()+base,1),year=target.getFullYear(),month=target.getMonth();
+   let first=new Date(year,month,1),start=(first.getDay()||7)-1,days=new Date(year,month+1,0).getDate();
+   let today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+
+   let avg= daily ? monthlyDailyAverage(daily,year,month) : null;
+   let avgCl=avg===null?'':color(daily,Math.round(avg*daily.activities.length/100));
+
+   let c=document.createElement('div');c.className='card';
+   let html='<div class="cal"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><button class="ghost" onclick="changeMonth(-1)">‹</button><b>'+first.toLocaleDateString('es-PE',{month:'long',year:'numeric'})+'</b><button class="ghost" onclick="changeMonth(1)">›</button></div><div class="calgrid">'+['L','M','X','J','V','S','D'].map(x=>`<div class="dow">${x}</div>`).join('');
+   for(let i=0;i<start;i++)html+='<div class="day muted"></div>';
+   for(let n=1;n<=days;n++){
+     let d=new Date(year,month,n),future=d>today,v=daily?dailyValueForDate(daily,d):0,tracked=trackedDay(d);
+     html+=`<div class="day"><span>${n}</span>${(!daily||future||!tracked)?'':'<i class="sdot '+semaforo(v,daily)+'"></i>'}</div>`;
+   }
+   html+='</div></div>';
+
+   c.innerHTML=`<div class="head"><div><div class="label">${first.toLocaleDateString('es-PE',{month:'long',year:'numeric'}).toUpperCase()}</div><div class="freq">${daily?esc(daily.name)+' · ':''}sin color para días futuros</div></div>${avg===null?'':'<div class="status"><i class="dot '+avgCl+'"></i>'+avg+'%</div>'}</div>${html}`;
+   out.appendChild(c);
+
+   // Keep the weekly summary; the daily monthly summary now lives in the calendar header.
+   if(weekly){
+     let wav=monthlyWeeklyAverage(weekly,year,month),wcl=wav===null?'':color(weekly,Math.round(wav));
+     out.appendChild(blockCard(weekly.name,'Promedio de las semanas del mes',wav===null?null:wav,wav===null?'Sin datos todavía':`Promedio de cumplimiento semanal durante el mes: <b>${wav}%</b>`,wcl));
+   }
+   if(monthly){
+     let s=monthScoreForDate(monthly,first),isFuture=first>today,mcl=(!isFuture&&s!==null)?color(monthly,s):'';
+     out.appendChild(blockCard(monthly.name,isFuture?'Mes futuro':'Resultado del mes',isFuture?null:s,isFuture?'Todavía no comienza este mes':`Cumplimiento de la cuota mensual: <b>${s}%</b>`,mcl));
+   }
+
+ }else{
+   let now=new Date(),year=now.getFullYear(),c=document.createElement('div');c.className='card';
+   let html='<div class="head"><div><div class="label">'+year+'</div><div class="freq">Resumen mensual por rutina</div></div></div><div class="yeargrid">';
+   for(let m=0;m<12;m++){
+     let monthStart=new Date(year,m,1),futureMonth=monthStart>new Date(year,now.getMonth(),1),parts=[];
+     if(daily){let v=monthlyDailyAverage(daily,year,m);parts.push(v===null?'D:—':'D:'+v+'%');}
+     if(weekly){let v=monthlyWeeklyAverage(weekly,year,m);parts.push(v===null?'S:—':'S:'+v+'%');}
+     if(monthly){let v=futureMonth?null:monthScoreForDate(monthly,monthStart);parts.push(v===null?'M:—':'M:'+v+'%');}
+     html+=`<div class="month"><div class="monthname">${new Date(year,m,1).toLocaleDateString('es-PE',{month:'short'}).replace('.','')}</div><div style="font-size:11px;line-height:1.7;margin-top:5px">${parts.join('<br>')}</div></div>`;
+   }
+   html+='</div>';c.innerHTML=html;out.appendChild(c);
+
+   if(daily){
+     let vals=[];for(let m=0;m<=now.getMonth();m++){let v=monthlyDailyAverage(daily,year,m);if(v!==null)vals.push(v)}
+     let avg=vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length):null;
+     out.appendChild(blockCard(daily.name,'Promedio anual',avg,avg===null?'Sin datos todavía':`Promedio de los meses registrados: <b>${avg}%</b>`,avg===null?'':color(daily,Math.round(avg*daily.activities.length/100))));
+   }
+   if(weekly){
+     let vals=[];for(let m=0;m<=now.getMonth();m++){let v=monthlyWeeklyAverage(weekly,year,m);if(v!==null)vals.push(v)}
+     let avg=vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length):null;
+     out.appendChild(blockCard(weekly.name,'Promedio anual',avg,avg===null?'Sin datos todavía':`Promedio de los promedios mensuales: <b>${avg}%</b>`,avg===null?'':color(weekly,Math.round(avg))));
+   }
+   if(monthly){
+     let vals=[];for(let m=0;m<=now.getMonth();m++){let v=monthScoreForDate(monthly,new Date(year,m,1));if(prog['M'+year+'-'+String(m+1).padStart(2,'0')]?.[monthly.id])vals.push(v)}
+     let avg=vals.length?Math.round(vals.reduce((a,b)=>a+b,0)/vals.length):null;
+     out.appendChild(blockCard(monthly.name,'Promedio anual de meses registrados',avg,avg===null?'Sin datos todavía':`Promedio de los meses registrados: <b>${avg}%</b>`,avg===null?'':color(monthly,Math.round(avg))));
+   }
+ }
+}
+function renderSettings(){let l=document.getElementById('settingsList');l.innerHTML='';data.blocks.forEach(b=>{let r=document.createElement('div');r.className='setting';r.innerHTML=`<span><b>${esc(b.name)}</b><br><small>${esc(b.frequency)} · ${b.activities.length} actividades · ${b.reminder?'🔔 '+b.time:'sin aviso'}</small></span><button class="action">›</button>`;r.querySelector('button').onclick=()=>openEditor(b.id);l.appendChild(r)})}
+function openEditor(id){editId=id;let b=data.blocks.find(x=>x.id===id);document.getElementById('editorTitle').textContent='Editar '+b.name;let h=`<div class="card"><div class="editor"><div class="field"><label>Nombre del bloque</label><input id="en" value="${attr(b.name)}"></div><div class="field"><label>Frecuencia</label><select id="ef"><option ${b.frequency==='Diaria'?'selected':''}>Diaria</option><option ${b.frequency==='Semanal'?'selected':''}>Semanal</option><option ${b.frequency==='Mensual'?'selected':''}>Mensual</option></select></div><div class="freq" style="margin-top:-5px;margin-bottom:10px">En actividades puedes definir una cantidad diaria, semanal o mensual (por ejemplo 8 vasos, 2 meditaciones o 3 sesiones).</div><div class="field"><label>Umbral rojo / amarillo</label><input id="et1" type="number" value="${b.thresholds[0]}"></div><div class="field"><label>Umbral amarillo / verde</label><input id="et2" type="number" value="${b.thresholds[1]}"></div><div class="field"><label>Hora de recordatorio</label><input id="etime" type="time" value="${attr(b.time||'20:30')}"></div><label><input id="er" type="checkbox" ${b.reminder?'checked':''}> Activar recordatorio</label><div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap"><button class="ghost" type="button" onclick="requestNotif()">🔔 Permitir notificaciones</button><button class="ghost" type="button" onclick="testNotif()">Probar aviso</button></div><div id="notifStatus" class="freq" style="margin-top:6px"></div></div></div><div class="card"><div class="head"><div><div class="label">Actividades</div><div class="freq">Nombre, descripción y cantidad son configurables.</div></div><button class="action" onclick="addAct()">+ Añadir</button></div><div class="editor" id="acts"></div></div>`;document.getElementById('editorBody').innerHTML=h;drawActs(b);show('editor')}
+function drawActs(b){let box=document.getElementById('acts');box.innerHTML='';b.activities.forEach((a,i)=>{let d=document.createElement('div');d.className='activity';d.innerHTML=`<input class="an" value="${attr(a.name)}" placeholder="Actividad"><input class="ad" value="${attr(a.desc||'')}" placeholder="Descripción / objetivo"><div class="tw"><input class="aq" type="number" min="1" value="${a.quota||1}" placeholder="Cantidad"><button class="danger" onclick="delAct(${i})">Eliminar</button></div>`;box.appendChild(d)})}
+function addAct(){let b=data.blocks.find(x=>x.id===editId);b.activities.push({name:'Nueva actividad',desc:'',quota:1});drawActs(b)}function delAct(i){let b=data.blocks.find(x=>x.id===editId);b.activities.splice(i,1);drawActs(b)}async function requestNotif(){
+ if(!('Notification' in window)){alert('Este navegador no admite notificaciones.');return false}
+ let p=await Notification.requestPermission();
+ let el=document.getElementById('notifStatus'); if(el) el.textContent=p==='granted'?'Notificaciones permitidas ✓':(p==='denied'?'Notificaciones bloqueadas en el navegador.':'Permiso no concedido.');
+ return p==='granted';
+}
+async function testNotif(){
+ let ok=await requestNotif(); if(!ok)return;
+ let b=data.blocks.find(x=>x.id===editId)||data.blocks.find(x=>x.reminder);
+ let title=b?b.name:'Mi Rutina';
+ let body=b?`Este es un aviso de prueba de ${b.name}.`:'Este es un aviso de prueba de Mi Rutina.';
+ if(navigator.serviceWorker?.controller){
+   navigator.serviceWorker.ready.then(reg=>reg.showNotification(title,{body,icon:'./icon-192.png',tag:'mi-rutina-test'}));
+ }else new Notification(title,{body,icon:'./icon-192.png'});
+}
+function reminderState(b,d=new Date()){
+ let pct=null, label='';
+ if(b.frequency==='Diaria'){pct=dailyPctForDate(b,d);label=`${Math.round(pct)}%`;}
+ else if(b.frequency==='Semanal'){pct=weekScoreForDate(b,d);label=`${Math.round(pct)}%`;}
+ else if(b.frequency==='Mensual'){pct=monthScoreForDate(b,d);label=`${Math.round(pct)}%`;}
+ return {pct,label};
+}
+function reminderMessage(b,d=new Date()){
+ let s=reminderState(b,d), limit=b.frequency==='Diaria'?b.thresholds[1]:b.thresholds[1];
+ if(s.pct===null)return `Aún no hay registro en ${b.name}.`;
+ if(s.pct>=limit)return `¡${b.name}: ${s.label}! Vas muy bien.`;
+ return `${b.name}: ${s.label}. Todavía puedes completar tu rutina.`;
+}
+let lastReminderMinute='';
+function checkReminders(){
+ if(!('Notification' in window) || Notification.permission!=='granted')return;
+ let d=new Date(), hh=String(d.getHours()).padStart(2,'0'), mm=String(d.getMinutes()).padStart(2,'0'), todayKey=key(d);
+ data.blocks.filter(b=>b.reminder && b.time).forEach(b=>{
+   let due=(b.time===hh+':'+mm);
+   if(!due)return;
+   let allowed=true;
+   if(b.frequency==='Semanal' && b.reviewDay){
+     const days=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+     allowed=days[d.getDay()]===b.reviewDay;
+   }
+   if(!allowed)return;
+   let k=todayKey+'|'+b.id+'|'+b.time;
+   if(lastReminderMinute===k)return;
+   lastReminderMinute=k;
+   let title=`🔔 ${b.name}`;
+   let body=reminderMessage(b,d);
+   if(navigator.serviceWorker?.controller){
+     navigator.serviceWorker.ready.then(reg=>reg.showNotification(title,{body,icon:'./icon-192.png',tag:'mi-rutina-'+b.id}));
+   }else new Notification(title,{body,icon:'./icon-192.png'});
+ });
+}
+function startReminderChecks(){
+ checkReminders();
+ setInterval(checkReminders,30000);
+}
+function saveEditor(){let b=data.blocks.find(x=>x.id===editId);b.name=document.getElementById('en').value.trim()||'Mi rutina';b.frequency=document.getElementById('ef').value;b.thresholds=[+document.getElementById('et1').value,+document.getElementById('et2').value];b.time=document.getElementById('etime').value;b.reminder=document.getElementById('er').checked; if(b.reminder && 'Notification' in window && Notification.permission!=='granted') requestNotif();document.querySelectorAll('.activity').forEach((x,i)=>{b.activities[i].name=x.querySelector('.an').value.trim()||'Actividad';b.activities[i].desc=x.querySelector('.ad').value.trim();b.activities[i].quota=Math.max(1,+x.querySelector('.aq').value||1)});save();render();show('settings')}
+function newBlock(){let id='b'+Date.now();data.blocks.push({id,name:'Nuevo bloque',frequency:'Semanal',thresholds:[59,79],reminder:true,time:'18:00',activities:[{name:'Nueva actividad',desc:'',quota:1}]});save();openEditor(id)}function show(id,btn){document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');else if(id==='home')document.querySelectorAll('.tab')[0].classList.add('active');else if(id==='history')document.querySelectorAll('.tab')[1].classList.add('active');else if(id==='settings')document.querySelectorAll('.tab')[2].classList.add('active')}
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}function attr(s){return esc(s)}function cap(x){return x==='green'?'Verde':x==='yellow'?'Amarillo':'Rojo'}render();
+startReminderChecks();
+</script>
+<script>
+(function(){
+  let lastDay=key();
+  function checkDay(){
+    const now=key();
+    if(now!==lastDay){
+      lastDay=now;
+      render();
+    }
+  }
+  document.addEventListener('visibilitychange',function(){
+    if(document.visibilityState==='visible') checkDay();
+  });
+  window.addEventListener('focus',checkDay);
+  window.addEventListener('pageshow',checkDay);
+  setInterval(checkDay,30000);
+})();
+</script>
+
+</body></html>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js'));
+}
+</script>
